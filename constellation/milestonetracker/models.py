@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class user(models.Model):
     first_name = models.CharField('First Name', max_length=50)
@@ -12,14 +12,9 @@ class user(models.Model):
 
 class dops(models.Model):
     dops_date = models.DateTimeField('DOPS Date')
-    mentor = models.ForeignKey(user, blank=True, null=True, on_delete=models.CASCADE)
+    mentor = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
     msnumber = models.IntegerField ('Milestone Number')
     comments = models.TextField(blank=True)
 
     def __str__(self) -> str:
         return f"{self.mentor}, {self.dops_date}"
-
-
-
-
-

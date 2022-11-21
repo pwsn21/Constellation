@@ -1,0 +1,24 @@
+{% extends 'milestonetracker/base.html' %}
+
+
+{% block content %}
+
+<h1>Add DOPS</h1>
+<br/><br/><br/>
+
+{% if submitted %}
+Submitted successfully
+
+{% else %}
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="submit" value="Submit" class="btn btn-secondary">
+    </form>
+{% endif%}
+
+
+
+{% endblock %}
